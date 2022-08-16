@@ -1,6 +1,7 @@
 package com.soleprojectname.soloproject.member.controller;
 
 
+import com.soleprojectname.soloproject.company.Company;
 import com.soleprojectname.soloproject.member.dto.MemberDto;
 import com.soleprojectname.soloproject.member.entity.Member;
 import com.soleprojectname.soloproject.member.mapper.MemberMapper;
@@ -29,6 +30,8 @@ public class MemberController {
     @PostMapping
     public ResponseEntity postMember(@RequestBody MemberDto.Post member){
         Member memberPost = mapper.memberPostDtoToMember(member);
+        member.setCompany(new Company());
+
         System.out.println(memberPost);
 
         Member postMember = memberService.memberPost(memberPost);

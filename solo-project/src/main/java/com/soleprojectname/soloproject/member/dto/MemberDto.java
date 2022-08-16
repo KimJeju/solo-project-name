@@ -1,5 +1,6 @@
 package com.soleprojectname.soloproject.member.dto;
 
+import com.soleprojectname.soloproject.company.Company;
 import com.soleprojectname.soloproject.member.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,8 @@ public class MemberDto {
         private Member.Sex sex = Member.Sex.SEX_M;
 
         private String company_name;
+
+        private Company company;
     }
 
 
@@ -39,6 +42,7 @@ public class MemberDto {
         private Member.Sex sex = Member.Sex.SEX_M;
 
         private String company_name;
+
     }
 
     @AllArgsConstructor
@@ -55,5 +59,7 @@ public class MemberDto {
         private Member.Sex sex = Member.Sex.SEX_M;
 
         private String company_name;
+
+        private Company company;
     }
 }

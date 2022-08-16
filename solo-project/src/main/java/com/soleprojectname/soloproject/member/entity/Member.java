@@ -1,13 +1,13 @@
 package com.soleprojectname.soloproject.member.entity;
 
+import com.soleprojectname.soloproject.company.Company;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Member {
 
@@ -23,6 +23,8 @@ public class Member {
 
     private String company_name;
 
+    @OneToOne(mappedBy = "member", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Company company;
 
     public enum Sex{
         SEX_M(1,"남성"),
