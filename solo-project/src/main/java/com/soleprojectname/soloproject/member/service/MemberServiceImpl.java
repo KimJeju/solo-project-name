@@ -1,7 +1,7 @@
-package com.soleprojectname.soloproject.service;
+package com.soleprojectname.soloproject.member.service;
 
-import com.soleprojectname.soloproject.entity.Member;
-import com.soleprojectname.soloproject.repository.MemberRepository;
+import com.soleprojectname.soloproject.member.entity.Member;
+import com.soleprojectname.soloproject.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class MemberServiceImpl implements MemberService{
 
 
     @Autowired
-    private  MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
     @Override
     public Member memberPost(Member member) {
@@ -45,29 +45,6 @@ public class MemberServiceImpl implements MemberService{
         return member;
     }
 
-    @Override
-    public List<Member> memberAllSearch() {
-        return memberRepository.findAll();
-    }
-
-    @Override
-    public Member memberSearchDomain(Member.Domain domain) {
-        Optional<Member> memberDomain = memberRepository.findByDomain(domain);
-
-        Member member = memberDomain.orElseThrow(() -> new NoSuchElementException());
-
-        return member;
-    }
-
-    @Override
-    public Member memberSearchRegion(Member.Region region) {
-
-        Optional<Member> memberRegion = memberRepository.findByRegion(region);
-
-        Member member = memberRegion.orElseThrow(() -> new NoSuchElementException());
-
-        return member;
-    }
 
     @Override
     public void memberDelete(Long memberId) {
