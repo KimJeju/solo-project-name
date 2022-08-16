@@ -19,5 +19,5 @@ public interface MemberService {
 
     Member memberSearchRegion(Member.Region region);
 
-    void memberDelete(Member member);
+    void memberDelete(Long memberId);
 }
