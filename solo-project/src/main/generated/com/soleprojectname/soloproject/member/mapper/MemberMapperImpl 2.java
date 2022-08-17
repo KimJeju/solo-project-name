@@ -1,5 +1,6 @@
 package com.soleprojectname.soloproject.member.mapper;
 
+import com.soleprojectname.soloproject.company.Company;
 import com.soleprojectname.soloproject.member.dto.MemberDto;
 import com.soleprojectname.soloproject.member.entity.Member;
 import javax.annotation.processing.Generated;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
     comments = "version: 1.5.1.Final, compiler: javac, environment: Java 11.0.15 (Azul Systems, Inc.)"
 )
 @Component
-public class MemberMapperImpl implements MemberMapper {
+class MemberMapperImpl implements MemberMapper {
 
     @Override
     public Member memberPostDtoToMember(MemberDto.Post post) {
@@ -51,8 +52,22 @@ public class MemberMapperImpl implements MemberMapper {
         if ( member == null ) {
             return null;
         }
+        
+        Long memberId = null;
+        String name = null;
+        String password = null;
+        Member.Sex sex = null;
+        String company_name = null;
 
-        MemberDto.Response response = new MemberDto.Response();
+        memberId = member.getMemberId();
+        name = member.getName();
+        password = member.getPassword();
+        sex = member.getSex();
+        company_name = member.getCompany_name();
+
+        
+
+        MemberDto.Response response = new MemberDto.Response(memberId,name,password,sex,company_name,new Company());
 
         return response;
     }

@@ -46,7 +46,6 @@ public class MemberDto {
     }
 
     @AllArgsConstructor
-    @NoArgsConstructor
     @Getter
     public static class Response{
 
